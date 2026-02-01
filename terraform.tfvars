@@ -1,0 +1,5 @@
+pm_api_url          = "https://192.168.68.74:8006/api2/json"
+pm_api_token_id     = "terraform-prov@pve!mytoken"
+pm_api_token_secret = "8fe8cceb-6d75-4d24-8002-4dda4900d7c5"
+node_name           = "pve1"
+lxc_password        = "password"
