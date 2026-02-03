@@ -18,7 +18,7 @@ provider "proxmox" {
 
 resource "proxmox_lxc" "test-container" {
   count        = var.lxc_count
-  hostname     = "LXC-test-${count.index + 1}"
+  hostname     = "lxc-test-${count.index + 1}"
   target_node  = var.node_name
   vmid         = 1000 + count.index # Ensure unique VMIDs
   ostemplate   = "local:vztmpl/${var.lxc_template}"
