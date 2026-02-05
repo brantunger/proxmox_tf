@@ -7,7 +7,6 @@ terraform {
   }
 }
 
-
 provider "proxmox" {
   pm_api_url          = var.pm_api_url
   pm_api_token_id     = var.pm_api_token_id
@@ -15,15 +14,15 @@ provider "proxmox" {
   pm_tls_insecure     = true
 }
 
-
 resource "proxmox_lxc" "test-container" {
   count        = var.lxc_count
   hostname     = "lxc-test-${count.index + 1}"
   target_node  = var.node_name
-  vmid         = 1000 + count.index # Ensure unique VMIDs
+  vmid         = 100 + count.index
   ostemplate   = "local:vztmpl/${var.lxc_template}"
   cores        = var.lxc_cores
   memory       = var.lxc_memory
+  swap         = var.lxc_swap
   password     = var.lxc_password
   unprivileged = true
   onboot       = true
@@ -43,5 +42,6 @@ resource "proxmox_lxc" "test-container" {
      bridge = "vmbr0"
      ip     = "dhcp"
      type   = "veth"
+     hwaddr = "AA:BB:CC:DD:EE:FF" # Manually set a unique MAC
   }
 }

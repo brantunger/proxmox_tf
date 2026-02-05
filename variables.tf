@@ -18,7 +18,8 @@ variable "node_name" {
 
 variable "lxc_template" {
   type    = string
-  default = "ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst"
+  default = "debian-13-standard_13.1-2_amd64.tar.zst"
+  # default = "ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst"
 }
 
 variable "lxc_storage" {
@@ -35,6 +36,11 @@ variable "lxc_password" {
 variable "lxc_memory" {
   type    = number
   default = 384
+}
+
+variable "lxc_swap" {
+  type    = number
+  default = 512
 }
 
 variable "lxc_cores" {
